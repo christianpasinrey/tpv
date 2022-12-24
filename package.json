@@ -20,6 +20,9 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@vueuse/core": "^9.9.0",
+        "bootstrap-icons": "^1.10.2",
+        "pinia": "^2.0.28",
         "vuetify": "^3.0.5"
     }
 }

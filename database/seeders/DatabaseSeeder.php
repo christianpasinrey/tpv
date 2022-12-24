@@ -16,12 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            EmpleadoSeeder::class,
-            AdminSeeder::class,
             ZonaSeeder::class,
             FamiliaSeeder::class,
             SubfamiliaSeeder::class,
             ProductoSeeder::class,
+            ServicioSeeder::class,
             ClienteSeeder::class,
         ]);
     }

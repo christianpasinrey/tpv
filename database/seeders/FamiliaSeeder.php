@@ -15,7 +15,6 @@ class FamiliaSeeder extends Seeder
      */
     public function run()
     {
-
-
+        Familia::factory()->count(50)->create();
     }
 }

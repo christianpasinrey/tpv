@@ -31,6 +31,11 @@ class Servicio extends Model
         return $this->belongsTo(Subfamilia::class);
     }
 
+    public function lineasTickets()
+    {
+        return $this->hasMany(LineaTicket::class);
+    }
+
     public function scopeNombre($query, $nombre)
     {
         if ($nombre) {

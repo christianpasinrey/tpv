@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Subfamilia;
 
 class SubfamiliaSeeder extends Seeder
 {
@@ -14,6 +15,6 @@ class SubfamiliaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Subfamilia::factory()->count(100)->create();
     }
 }

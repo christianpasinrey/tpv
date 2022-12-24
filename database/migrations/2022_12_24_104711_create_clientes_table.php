@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('poblacion');
             $table->string('provincia');
             $table->string('cp');
+            $table->string('pais');
             $table->string('dni');
             $table->date('fecha_nacimiento');
             $table->boolean('activo');

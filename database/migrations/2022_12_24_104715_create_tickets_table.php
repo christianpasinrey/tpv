@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tpv_configuraciones', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('fecha');
+            $table->string('numero');
             $table->foreignId('caja_id')->constrained('cajas');
-            $table->foreignId('zona_id')->constrained('zonas');
+            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('impuesto_id')->constrained('impuestos');
+            $table->foreignId('descuento_id')->constrained('descuentos');
+            $table->foreignId('empleado_id')->constrained('empleados');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tpv_configuracions');
+        Schema::dropIfExists('tickets');
     }
 };

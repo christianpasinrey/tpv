@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subfamilias', function (Blueprint $table) {
+        Schema::create('configuraciones_factura', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
-            $table->foreignId('familia_id')->constrained('familias');
-            $table->string('imagen');
-            $table->boolean('activo');
-            $table->softDeletes();
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('web');
+            $table->string('logo');
+            $table->string('iva');
+            $table->string('cif');
+            $table->string('pie');
             $table->timestamps();
         });
     }
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subfamilias');
+        Schema::dropIfExists('configuracion_facturas');
     }
 };

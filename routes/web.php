@@ -36,6 +36,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    //Retorno de renderización directa de páginas con Inertia
+    Route::get('tpv',function(){
+        return Inertia::render('Tpv');
+    })->name('tpv.page');
+
+    //Registro de recursos que generan rutas predefinidas asociadas a los métodos del controlador que le pasamos como segundo parámetro
+    // definicion.ruta
+    // Rutas:
+    // definicion.index, definicion.create, definicion.store, definicion.show, definicion.edit, definicion.update, definicion.destroy
     Route::resource('clientes', App\Http\Controllers\ClienteController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
     Route::resource('zonas', App\Http\Controllers\ZonaController::class);
@@ -46,13 +55,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('tpvConfiguraciones', App\Http\Controllers\TpvConfiguracionController::class);
     Route::resource('tpvVentas', App\Http\Controllers\TpvVentaController::class);
     Route::resource('tickets', App\Http\Controllers\TicketController::class);
-
-
+    Route::resource('ticketLineas', App\Http\Controllers\TicketLineaController::class);
+    Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 
     Route::get('clientes/search/{query}', [App\Http\Controllers\ClienteController::class, 'search']);
     Route::get('productos/search/{query}', [App\Http\Controllers\ProductoController::class, 'search']);
     Route::get('subfamilias/search/{query}', [App\Http\Controllers\SubfamiliaController::class, 'search']);
     Route::get('familias/search/{query}', [App\Http\Controllers\FamiliaController::class, 'search']);
+
+    Route::get('tickets/abiertos', [App\Http\Controllers\TicketController::class, 'getTicketsAbiertos'])->name('tickets.abiertos');
 });
 
 require __DIR__.'/auth.php';

@@ -17,9 +17,17 @@ class ProductoFactory extends Factory
      */
     public function definition()
     {
-        $familia = Familia::all()->random();
+        $familias = Familia::all();
+        foreach($familias as $familia){
+            if($familia->tipo == 'producto'){
+                count($familia->subfamilias) > 0 ?:
+                $familia->subfamilias()->saveMany(SubfamiliaFactory::new()->times(3)->make());
+            }
+        }
+
+        $familia = Familia::all()->where('tipo','producto')->random();
         return [
-            'nombre' => fake()->name(),
+            'nombre' => fake()->word(),
             'descripcion' => fake()->text(),
             'precio' => fake()->randomFloat(2, 0, 1000),
             'stock' => fake()->randomNumber(2),

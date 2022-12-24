@@ -18,6 +18,7 @@ class Producto extends Model
         'descripcion',
         'precio',
         'stock',
+        'impuesto_id',
         'familia_id',
         'subfamilia_id',
         'imagen',
@@ -32,6 +33,16 @@ class Producto extends Model
     public function subfamilia()
     {
         return $this->belongsTo(Subfamilia::class);
+    }
+
+    public function impuesto()
+    {
+        return $this->belongsTo(Impuesto::class);
+    }
+
+    public function lineasTickets()
+    {
+        return $this->hasMany(LineaTicket::class);
     }
 
     public function scopeNombre($query, $nombre)
@@ -59,6 +70,13 @@ class Producto extends Model
     {
         if ($stock) {
             return $query->where('stock', 'LIKE', "%$stock%");
+        }
+    }
+
+    public function scopeImpuesto($query, $impuesto)
+    {
+        if ($impuesto) {
+            return $query->where('impuesto_id', $impuesto);
         }
     }
 

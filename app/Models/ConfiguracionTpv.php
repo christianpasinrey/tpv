@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TpvConfiguracion extends Model
+class ConfiguracionTpv extends Model
 {
     use HasFactory;
 
-    protected $table = 'tpv_configuraciones';
+    protected $table = 'configuraciones_tpv';
 
     protected $fillable = [
         'caja_id',

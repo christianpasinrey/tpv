@@ -19,7 +19,7 @@ class FamiliaFactory extends Factory
     {
         $zona = Zona::all()->random();
         return [
-            'nombre' => $this->faker->name,
+            'nombre' => $this->faker->word,
             'descripcion' => $this->faker->text,
             'imagen' => $this->faker->imageUrl(),
             'tipo' => $this->faker->randomElement(['producto', 'servicio']),

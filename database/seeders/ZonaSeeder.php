@@ -18,13 +18,11 @@ class ZonaSeeder extends Seeder
         $zona = new Zona();
         $zona->nombre = 'Peluquería';
         $zona->descripcion = 'Peluquería';
-        $zona->activo = true;
         $zona->save();
 
         $zona = new Zona();
         $zona->nombre = 'Estética';
         $zona->descripcion = 'Estética';
-        $zona->activo = true;
         $zona->save();
     }
 }

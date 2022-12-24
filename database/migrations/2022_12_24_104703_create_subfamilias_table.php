@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('linea_tickets', function (Blueprint $table) {
+        Schema::create('subfamilias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->foreignId('familia_id')->constrained('familias');
+            $table->string('imagen');
+            $table->enum('tipo', ['producto', 'servicio']);
+            $table->boolean('activo');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linea_tickets');
+        Schema::dropIfExists('subfamilias');
     }
 };

@@ -83,4 +83,14 @@ class TicketController extends Controller
     {
         //
     }
+
+    /**
+     * Display a listing of the opened items.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getTicketsAbiertos()
+    {
+        //
+    }
 }

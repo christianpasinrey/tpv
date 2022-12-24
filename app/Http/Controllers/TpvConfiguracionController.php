@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TpvConfiguracion;
+use App\Models\ConfiguracionTpv;
 use App\Models\Caja;
 use App\Models\Zona;
 use App\Http\Requests\StoreTpvConfiguracionRequest;
@@ -17,7 +17,7 @@ class TpvConfiguracionController extends Controller
      */
     public function index()
     {
-        return TpvConfiguracion::all();
+        return ConfiguracionTpv::all();
     }
 
     /**
@@ -41,7 +41,7 @@ class TpvConfiguracionController extends Controller
      */
     public function store(StoreTpvConfiguracionRequest $request)
     {
-        $tpvConfiguracion = TpvConfiguracion::create($request->validated());
+        $tpvConfiguracion = ConfiguracionTpv::create($request->validated());
         return response()->json($tpvConfiguracion, 201);
     }
 
@@ -51,7 +51,7 @@ class TpvConfiguracionController extends Controller
      * @param  \App\Models\TpvConfiguracion  $tpvConfiguracion
      * @return \Illuminate\Http\Response
      */
-    public function show(TpvConfiguracion $tpvConfiguracion)
+    public function show(ConfiguracionTpv $tpvConfiguracion)
     {
         return response()->json($tpvConfiguracion);
     }
@@ -62,7 +62,7 @@ class TpvConfiguracionController extends Controller
      * @param  \App\Models\TpvConfiguracion  $tpvConfiguracion
      * @return \Illuminate\Http\Response
      */
-    public function edit(TpvConfiguracion $tpvConfiguracion)
+    public function edit(ConfiguracionTpv $tpvConfiguracion)
     {
         return response()->json([
             'tpvConfiguracion' => $tpvConfiguracion,
@@ -78,7 +78,7 @@ class TpvConfiguracionController extends Controller
      * @param  \App\Models\TpvConfiguracion  $tpvConfiguracion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTpvConfiguracionRequest $request, TpvConfiguracion $tpvConfiguracion)
+    public function update(UpdateTpvConfiguracionRequest $request, ConfiguracionTpv $tpvConfiguracion)
     {
         $tpvConfiguracion->update($request->validated());
         return response()->json($tpvConfiguracion, 200);
@@ -90,7 +90,7 @@ class TpvConfiguracionController extends Controller
      * @param  \App\Models\TpvConfiguracion  $tpvConfiguracion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TpvConfiguracion $tpvConfiguracion)
+    public function destroy(ConfiguracionTpv $tpvConfiguracion)
     {
         $tpvConfiguracion->delete();
         return response()->json(null, 204);

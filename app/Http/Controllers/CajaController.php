@@ -15,7 +15,7 @@ class CajaController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Caja::all());
     }
 
     /**
@@ -36,7 +36,9 @@ class CajaController extends Controller
      */
     public function store(StoreCajaRequest $request)
     {
-        //
+        $caja = Caja::create($request->validated());
+
+        return response()->json($caja);
     }
 
     /**

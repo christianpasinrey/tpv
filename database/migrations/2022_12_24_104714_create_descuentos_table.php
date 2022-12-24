@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('caja_configuracions', function (Blueprint $table) {
+        Schema::create('descuentos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->enum('tipo', ['porcentaje', 'cantidad']);
+            $table->decimal('valor', 8, 2);
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caja_configuracions');
+        Schema::dropIfExists('descuentos');
     }
 };

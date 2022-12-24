@@ -17,9 +17,17 @@ class ServicioFactory extends Factory
      */
     public function definition()
     {
-        $familia = Familia::all()->random();
+        $familias = Familia::all();
+        foreach($familias as $familia){
+            if($familia->tipo == 'servicio'){
+                count($familia->subfamilias) > 0 ?:
+                $familia->subfamilias()->saveMany(SubfamiliaFactory::new()->times(3)->make());
+            }
+        }
+
+        $familia = Familia::all()->where('tipo','servicio')->random();
         return [
-            'nombre' => $this->faker->name,
+            'nombre' => $this->faker->word,
             'descripcion' => $this->faker->text,
             'precio' => $this->faker->randomFloat(2, 0, 1000),
             'imagen' => $this->faker->imageUrl(640, 480, 'cats', true),
