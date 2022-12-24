@@ -42,6 +42,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('familias', App\Http\Controllers\FamiliaController::class);
     Route::resource('subfamilias', App\Http\Controllers\SubfamiliaController::class);
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
+    Route::resource('cajas', App\Http\Controllers\CajaController::class);
+    Route::resource('tpvConfiguraciones', App\Http\Controllers\TpvConfiguracionController::class);
+    Route::resource('tpvVentas', App\Http\Controllers\TpvVentaController::class);
+    Route::resource('tickets', App\Http\Controllers\TicketController::class);
+
+
+
     Route::get('clientes/search/{query}', [App\Http\Controllers\ClienteController::class, 'search']);
     Route::get('productos/search/{query}', [App\Http\Controllers\ProductoController::class, 'search']);
     Route::get('subfamilias/search/{query}', [App\Http\Controllers\SubfamiliaController::class, 'search']);
